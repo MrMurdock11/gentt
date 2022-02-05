@@ -1,10 +1,10 @@
 version: '3.1'
 
 volumes:
-  pg_project:
+  gentt:
 
 services:
-  pg_db:
+  db:
     image: postgres
     restart: always
     environment:
@@ -12,7 +12,8 @@ services:
       - POSTGRES_USER=sa
       - POSTGRES_DB=gentt
     volumes:
-      - pg_project:/var/lib/postgresql/data
-      - ".scripts/schema.sql:/docker-entrypoint-initdb.d/1.sql"
+      - ./gentt:/var/lib/postgresql/data
+      - "./init.sql/schema.sql:/docker-entrypoint-initdb.d/1.sql"
+      - "./init.sql/data.sql:/docker-entrypoint-initdb.d/2.sql"
     ports:
       - ${POSTGRES_PORT:-5432}:5432

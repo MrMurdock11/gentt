@@ -6,7 +6,7 @@ CREATE TABLE financial_managers (
 	address varchar(120),
 	phone varchar(50),
 	email varchar(50)
-)
+);
 
 CREATE TABLE debtors (
 	id bigserial primary key,
@@ -18,10 +18,10 @@ CREATE TABLE debtors (
 	birthday date,
 	place_of_birth varchar(120),
 	registration_address varchar(120)
-)
+);
 
 CREATE TABLE courthouses (
 	id bigserial primary key,
 	title varchar(200),
 	address varchar(120)
-)
+);
